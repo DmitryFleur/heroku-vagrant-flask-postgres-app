@@ -2,11 +2,13 @@
 # vi: set ft=ruby :
 
 $script = <<SCRIPT
+apt-get update
 gem install foreman
-apt-get install -y python-pip
+apt-get install -y python-pip postgresql postgresql-server-dev-9.1 python-dev
 
 cd /vagrant
 pip install -r requirements.txt
+su postgres -c 'psql < /vagrant/bin/postgresql_prepare_user_database.sql'
 
 foreman export upstart --app=App --user=root /etc/init
 service App start
