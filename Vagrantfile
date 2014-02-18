@@ -8,8 +8,8 @@ apt-get install -y python-pip
 cd /vagrant
 pip install -r requirements.txt
 
-mkdir -p /vagrant/logs
-chmod -R a+x /vagrant/logs
+foreman export upstart --app=App --user=root /etc/init
+service App start
 SCRIPT
 
 Vagrant.configure("2") do |config|
