@@ -2,7 +2,8 @@
 # vi: set ft=ruby :
 
 $script = <<SCRIPT
-aptitude install python-pip
+gem install foreman
+apt-get install -y python-pip
 
 cd /vagrant
 pip install -r requirements.txt
