@@ -12,6 +12,9 @@ app.config['SQLALCHEMY_MIGRATE_REPO'] = os.path.join(basedir, 'migrations')
 db = SQLAlchemy(app)
 
 
+from apps.account import models
+
+
 @app.route('/')
 def hello():
     return 'Hello World!'
